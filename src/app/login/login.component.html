@@ -1,0 +1,44 @@
+<div class="container-fluid">
+  <div class="vh-100 d-flex justify-content-center align-items-center">
+    <form [formGroup]="loginForm">
+      <p class="fw-bold text-center fs-3 mt-5">SIGN IN</p>
+      <div class="mx-5 mt-5">
+        <mat-form-field appearance="outline">
+          <mat-label>Username</mat-label>
+          <input
+            formControlName="username"
+            name="username"
+            type="text"
+            matInput
+          />
+        </mat-form-field>
+      </div>
+      <div class="mx-5 mt-3">
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input
+            formControlName="password"
+            name="password"
+            [type]="isPasswordVisible ? 'text' : 'password'"
+            matInput
+          />
+        </mat-form-field>
+        <section class="text-center">
+          <mat-checkbox #pass (click)="showPass(pass)"
+            >Show Password</mat-checkbox
+          >
+        </section>
+        <div class="mt-5 text-center">
+          <button
+            [disabled]="!loginForm.valid"
+            mat-raised-button
+            color="primary"
+            (click)="onSubmit()"
+          >
+            GET STARTED
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
